@@ -25,6 +25,6 @@ Route::get("/car/{id}", [CarController::class, 'show']);
 Route::post("/car", [CarController::class, 'store']);
 Route::put("/car/{id}", [CarController::class, 'update']);
 Route::patch("/car/{id}", [CarController::class, 'update']);
-Route::delete("/car/{id}", [CarController::class, 'delete']);
+Route::delete("/car/{id}", [CarController::class, 'destroy']);
     
 
