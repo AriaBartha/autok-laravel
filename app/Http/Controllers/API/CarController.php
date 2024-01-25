@@ -45,7 +45,16 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $car = Car::find($id);
+        $car->fill([
+            "license_plate_number" => $request->license_plate_number,
+            "brand" => $request->brand,
+            "model" => $request->model,
+            "year_of_manufacture" => $request->year_of_manufacture,
+            "fuel_type" => $request->fuel_type,
+        ]);
+        $car->save();
+        return $car;
     }
 
     /**
