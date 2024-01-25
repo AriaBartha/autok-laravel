@@ -46,16 +46,6 @@ class CarController extends Controller
     public function update(Request $request, string $id)
     {
         $car = Car::find($id);
-        /**$car->fill([
-            "license_plate_number" => $request->license_plate_number,
-            "brand" => $request->brand,
-            "model" => $request->model,
-            "year_of_manufacture" => $request->year_of_manufacture,
-            "fuel_type" => $request->fuel_type,
-        ]);
-        ez egy put függvény
-        */
-        //patch függvény
         $car->fill($request->all());
         $car->save();
         return $car;
@@ -66,6 +56,7 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $car = Car::find($id);
+        $car->delete();
     }
 }
