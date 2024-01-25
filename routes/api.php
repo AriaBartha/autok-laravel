@@ -20,11 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get("/car", [CarController::class, 'index']);
 Route::get("/car/{id}", [CarController::class, 'show']);
 Route::post("/car", [CarController::class, 'store']);
 Route::put("/car/{id}", [CarController::class, 'update']);
 Route::patch("/car/{id}", [CarController::class, 'update']);
 Route::delete("/car/{id}", [CarController::class, 'destroy']);
-    
+   
 
+ //Route::apiResource('/car', CarController::class);

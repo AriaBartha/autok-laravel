@@ -37,6 +37,9 @@ class CarController extends Controller
     public function show(string $id)
     {
         $car = Car::find($id);
+        if(is_null($car)){
+            return response()->json(["message" => "No item found with id: $id"], 404);
+        }
         return $car;
     }
 
