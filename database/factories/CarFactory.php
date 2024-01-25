@@ -16,12 +16,41 @@ class CarFactory extends Factory
      */
     public function definition(): array
     {
+        $brands = ["Ford", "Opel", "Skoda", "Renault"];
+        $fuel = ["elektromos", "benzin", "dízel"];
+        $models = [
+
+            "Ford" => [
+                "Focus",
+                "Fiesta",
+            ],
+            "Opel" => [
+                "Corsa",
+                "Meriva",
+            ],
+            "Skoda" => [
+                "Fabia",
+                "Superb"
+            ],
+            "Renault" => [
+                "Clio",
+                "Megane"
+            ]
+
+
+            ];
+
+        $brand = fake()->randomElement($brands);
+        $model = fake()->randomElement($models[$brand]);
+
         return [
             'license_plate_number' => fake()->bothify('???-###'),
-            'brand' => fake()->word(),
+            'brand' => fake()->randomElement($brands),
+            //'brand' => fake() -> $brand,
             'model' => fake()->word(),
-            'year_of_manufacture' => fake()->year(),
-            'fuel_type' => fake()->word(),
+            //'model' => fake() -> $model,
+            'year_of_manufacture' => fake()->year("-1 year"),
+            'fuel_type' => fake()->randomElement($fuel),
         ];
     }
 }
