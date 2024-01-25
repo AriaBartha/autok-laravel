@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -12,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        return Car::all();
     }
 
     /**
@@ -20,7 +21,14 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $car = Car::create([
+                "license_plate_number" => $request->license_plate_number,
+                "brand" => $request->brand,
+                "model" => $request->model,
+                "year_of_manufacture" => $request->year_of_manufacture,
+                "fuel_type" => $request->fuel_type,
+            ]);
+        return $car;
     }
 
     /**

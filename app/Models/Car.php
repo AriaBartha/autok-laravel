@@ -9,5 +9,5 @@ class Car extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["license-plate-number", "brand", "model", "year-of-manufacture", "fuel-type"];
+    protected $fillable = ["license_plate_number", "brand", "model", "year_of_manufacture", "fuel_type"];
 }

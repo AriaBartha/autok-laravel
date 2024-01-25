@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string("license-plate-number", 50);
+            $table->string("license_plate_number", 50);
             $table->string("brand", 50);
             $table->string("model",50);
-            $table->integer("year-of-manufacture", false, false);
-            $table->string("fuel-type", 50);
+            $table->integer("year_of_manufacture", false, false);
+            $table->string("fuel_type", 50);
             $table->timestamps();
         });
     }
